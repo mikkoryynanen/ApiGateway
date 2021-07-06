@@ -1,19 +1,35 @@
 {
-    "Routes" : [
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/weatherforecast",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
         {
-            "DownstreamPathTemplate": "/weatherforecast",
-            "DownstreamScheme": "http",
-            "DownstreamHostAndPorts":[
-                {
-                    "Host" : "localhost",
-                    "Port" : "5000"
-                }
-            ],
-            "UpstreamPathTemplate": "/weatherforecast",
-            "Key": "Weather"
+          "Host": "localhost",
+          "Port": "1339"
         }
-    ],
-    "GlobalConfiguration":{
-        "BaseUrl": "http://localhost:1337"
+      ],
+      "UpstreamPathTemplate": "/weatherforecast",
+      "Key": "Weather"
+    },
+    {
+      "DownstreamPathTemplate": "/user/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "1338"
+        }
+      ],
+      "UpstreamPathTemplate": "/user/authenticate",
+      "Key": "User"
     }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:1337"
+  },
+  "AuthenticationOptions": {
+    "AuthenticationProviderKey": "his is my testing key",
+    "AllowedScopes": []
+  }
 }
